@@ -27,7 +27,8 @@ class solutions:
                     level.append(node.val)
                     q.append(node.left)
                     q.append(node.right)
-            res.append(level)
+            if level:
+                res.append(level)
         return res
 sln = solutions()
 sln.level_order_traversal(root=root)
