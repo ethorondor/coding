@@ -1,5 +1,5 @@
 '''
-94 binary tree inorder traversal
+binary tree preorder traversal
 '''
 #%%
 class node:
@@ -15,26 +15,27 @@ root.left.right = node(4)
 root.right.left = node(7)
 root.right.right = node(9)
 class solutions:
-    def inorder_traversal_recursive(self, root):
+    def preorder_recursive(self, root):
         res = []
-        def inorder(root):
+        def preorder(root):
             if not root:
                 return None
-            inorder(root.left)
             res.append(root.val)
-            inorder(root.right)
-        inorder(root)
+            preorder(root.left)
+            preorder(root.right)
+        preorder(root)
         return res
-    def inorder_traversal_iterative(self, root):
+    
+    def preorder_iterative(self, root):
         curr, stack, res = root, [], []
         while curr or stack:
-            while curr:
-                stack.append(curr)
+            if curr:
+                res.append(curr.val)
+                stack.append(curr.right)
                 curr = curr.left
-            curr = stack.pop()
-            res.append(curr.val)
-            curr = curr.right
+            else:
+                curr = stack.pop()
         return res
 sln = solutions()
-sln.inorder_traversal_iterative(root)
+sln.preorder_iterative(root=root)
 # %%
