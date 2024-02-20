@@ -12,6 +12,7 @@ class solutions:
             second = heapq.heappop(stones)
             if second > first:
                 heapq.heappush(stones, first-second)
+        heapq.heappush(stones, 0)
         return -1*stones[0]
 stones = [2,7,4,1,8,1]
 sln = solutions()
