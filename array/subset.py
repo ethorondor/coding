@@ -3,9 +3,10 @@
 note: in subsets, order does not matter
 '''
 #%%
-nums = [1,2,3]
+nums = [4,4,4,1,4]
 class Solutions:
     def subset(self, nums):
+        nums.sort()
         subset = []
         subset.append([])
         for n in nums:
@@ -13,7 +14,8 @@ class Solutions:
             for i in range(l):
                 s = subset[i].copy()
                 s.append(n)
-                subset.append(s)
+                if s not in subset:
+                    subset.append(s)
         return subset
     
     def subset_1(self, nums):
