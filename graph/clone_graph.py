@@ -19,7 +19,7 @@ n4.neighbors = [n1,n3]
 class Solutions:
     def clone_graph(self, node):
         old_to_new = {}
-        def dfs (node):
+        def dfs(node):
             if node in old_to_new:
                 return old_to_new[node]
             if not node:
