@@ -2,6 +2,7 @@
 200 number of islands
 '''
 #%%
+from collections import deque
 grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
 grid = [["1","1","1"],["0","1","0"],["1","1","1"]]
 import collections
@@ -9,32 +10,32 @@ class Solutions:
     def num_islands(self, grid):
         if not grid:
             return 0
-        
-        rows, cols = len(grid), len(grid[0])
-        visit = set()
-        islands = 0
-        
+        visited = set()
+        ROW, COL = len(grid), len(grid[0])
+        ans = 0
         def dfs(r,c):
-            q = collections.deque()
-            visit.add((r,c))
+            q = deque()
             q.append((r,c))
+            visited.add((r,c))
             while q:
-                row, col = q.popleft()
-                directions = [[1,0],[-1,0],[0,1],[-1,0]]
-                for dr,dc in directions:
-                    r,c = row+dr, col+dc
-                    if (r in range(rows) and
-                        c in range(cols) and
-                        grid[r][c] == '1' and
-                        (r,c) not in visit):
-                        q.append((r,c))
-                        visit.add((r,c))
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == '1' and (r,c) not in visit:
+                (row, col) = q.popleft()
+                directions = [[0,1],[0,-1],[-1,0],[1,0]]
+                for (dr,dc) in directions:
+                    _r = row+dr
+                    _c = col+dc
+                    if (_r in range(ROW) and
+                        _c in range(COL) and
+                        (_r,_c) not in visited and
+                        grid[_r][_c] == '1'):
+                        q.append((_r,_c))
+                        visited.add((_r,_c))
+        for r in range(ROW):
+            for c in range(COL):
+                if grid[r][c] == '1' and (r,c) not in visited:
                     dfs(r,c)
-                    islands += 1
-        return islands
+                    ans+=1
+        return ans
+    
 sln = Solutions()
 sln.num_islands(grid)
 # %%
