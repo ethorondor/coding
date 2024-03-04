@@ -3,7 +3,7 @@
 note: in subsets, order does not matter
 '''
 #%%
-nums = [1,2,3,4]
+nums =  [1,2,6,1,5]
 class Solutions:
     def subset(self, nums):
         nums.sort()
@@ -38,7 +38,8 @@ class Solutions:
         def backtrack(curr, pos):
             for i in range(pos,len(nums)):
                 curr.append(nums[i])
-                res.append(curr.copy())
+                if curr not in res:
+                    res.append(curr.copy())
                 backtrack(curr, i+1)
                 curr.pop()
         backtrack([],0)
