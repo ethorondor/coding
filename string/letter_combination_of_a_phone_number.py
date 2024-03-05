@@ -2,7 +2,7 @@
 17 letter combinations of a phone number
 '''
 #%%
-digits = '23'
+digits = '234'
 
 class Solutions:
     def letter_combinations(self, digits):
