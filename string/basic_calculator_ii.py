@@ -29,7 +29,7 @@ class solutions:
                 operator = c
         return sum(stack)
 
-s = '1+5*3-3/3'
+s = '1+5*3-3/3 '
 sln = solutions()
 sln.basic_calculator(s)
 # %%
