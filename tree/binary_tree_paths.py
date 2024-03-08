@@ -16,10 +16,11 @@ class Solutions:
     def tree_paths(self, root):
         all_path=[]
         curr_path = []
+        res = []
         def dfs(root, curr_path, all_path):
             if not root:
                 return None
-            curr_path.append(root.val)            
+            curr_path.append(str(root.val))            
             if not root.left and not root.right:
                 all_path.append(curr_path.copy())
 
@@ -29,7 +30,9 @@ class Solutions:
                 dfs(root.right, curr_path, all_path)
             curr_path.pop()
         dfs(root, curr_path, all_path)
-        return all_path
+        for i in range(len(all_path)):
+            res.append('=>'.join(all_path[i]))
+        return res
     
 sln = Solutions()
 sln.tree_paths(root)
