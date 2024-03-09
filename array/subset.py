@@ -44,6 +44,15 @@ class Solutions:
                 curr.pop()
         backtrack([],0)
         return res
+    def subset_dfs(self,nums):
+        nums.sort()
+        res = []
+        def dfs(stack, pos):
+            res.append(stack.copy())
+            for i in range(pos, len(nums)):
+                dfs(stack+[nums[i]], i+1)
+        dfs([], 0)
+        return res
 sln = Solutions()
-sln.subset_backtrack(nums)
+sln.subset_dfs(nums)
 # %%
