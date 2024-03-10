@@ -3,7 +3,7 @@
 note: in subsets, order does not matter
 '''
 #%%
-nums =  [1,2,6,1,5]
+nums =  [1,2,3]
 class Solutions:
     def subset(self, nums):
         nums.sort()
@@ -48,11 +48,11 @@ class Solutions:
         nums.sort()
         res = []
         def dfs(stack, pos):
-            res.append(stack.copy())
+            res.append(stack)
             for i in range(pos, len(nums)):
                 dfs(stack+[nums[i]], i+1)
         dfs([], 0)
         return res
 sln = Solutions()
-sln.subset_dfs(nums)
+sln.subset_backtrack(nums)
 # %%
