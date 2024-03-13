@@ -18,4 +18,3 @@ class Solutions:
         return res
 sln = Solutions()
 sln.longest_repeating_substring(s,k)
-# %%
