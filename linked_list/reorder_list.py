@@ -31,17 +31,19 @@ class Solutions:
             tail.next = prev
             prev = tail
             tail = _tmp
-        first = head
-        second = prev
-        while second:
-            tmp1 = first.next
-            tmp2 = second.next
-            first.next = second
-            second.next = tmp1
-            first = tmp1
-            second = tmp2
+        dummy = ListNode()
+        curr = dummy
+        while prev and head:
+            curr.next = ListNode(head.val)
+            curr = curr.next
+            curr.next = ListNode(prev.val)
+            curr = curr.next
+            head = head.next
+            prev = prev.next
+        if head:
+            curr.next = head
             
-        return head
+        return dummy.next
             
 sln = Solutions()
 h = sln.reorder_list(head)
