@@ -3,8 +3,13 @@
 '''
 #%%
 from collections import deque
-grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
-grid = [["1","1","1"],["0","1","0"],["1","1","1"]]
+grid = [["1","1","1","1","0"],
+        ["1","1","0","1","0"],
+        ["1","1","0","0","0"],
+        ["0","0","0","0","0"]]
+grid = [["1","1","1"],
+        ["0","1","0"],
+        ["1","1","1"]]
 import collections
 class Solutions:
     def num_islands(self, grid):
@@ -35,7 +40,26 @@ class Solutions:
                     dfs(r,c)
                     ans+=1
         return ans
-    
+    def num_island_alternative(self, grid):
+        R,C = len(grid), len(grid[0])
+        ans = 0
+        visited = set()
+        def dfs(r,c):
+            if r < 0 or c < 0 or r == R or c == C or grid[r][c] == '0' or (r,c) in visited:
+                return 
+            visited.add((r,c))
+            dfs(r+1,c)
+            dfs(r-1,c)
+            dfs(r,c+1)
+            dfs(r,c-1)
+        for r in range(R):
+            for c in range(C):
+                if grid[r][c] == '1' and (r,c) not in visited:
+                    dfs(r,c)
+                    ans+=1
+        return ans
+            
 sln = Solutions()
-sln.num_islands(grid)
+sln.num_island_alternative(grid)
+
 # %%
