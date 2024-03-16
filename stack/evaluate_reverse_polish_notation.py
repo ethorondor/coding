@@ -2,7 +2,7 @@
 150 evaluate reverse polish notation
 '''
 #%%
-tokens = ["2","1","+","3","*"]
+tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 class Solutions:
     def evaluate_polish_notation(self, tokens):
         stack = []
@@ -22,7 +22,7 @@ class Solutions:
             elif c == '/':
                 a = stack.pop()
                 b = stack.pop()
-                stack.append(b/a)
+                stack.append(int(b/a))
             else:
                 stack.append(int(c))
         return stack.pop()
