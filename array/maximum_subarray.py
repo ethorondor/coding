@@ -3,7 +3,7 @@
 whenever the cum sum is less that zero, we can reset, and start with a new subarray
 '''
 #%%
-nums = [-2,1,-1,4,1,3,-2,3]
+nums = [-2,-1,-1,-4,-1,-3,-2,-3]
 class solusions:
     def max_sum(self, nums):
         max_sum = nums[0]

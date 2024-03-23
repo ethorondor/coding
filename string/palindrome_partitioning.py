@@ -26,3 +26,5 @@ class Solutions:
         return res
 sln = Solutions()
 sln.palindrome_partitioning(s)            
+
+# %%
