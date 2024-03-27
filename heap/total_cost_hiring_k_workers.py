@@ -1,6 +1,7 @@
 '''
 2462 total cost to hire k workers
 '''
+#%%
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
         q = costs[:candidates]
@@ -21,3 +22,4 @@ class Solution:
                     heappush(qq, costs[ii])
                     ii -= 1
         return ans 
+# %%
