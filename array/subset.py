@@ -12,10 +12,8 @@ class Solutions:
         for n in nums:
             l = len(subset)
             for i in range(l):
-                s = subset[i].copy()
-                s.append(n)
-                if s not in subset:
-                    subset.append(s)
+                s = subset[i]
+                subset.append(s+[n])
         return subset
     
     def subset_1(self, nums):
@@ -54,5 +52,5 @@ class Solutions:
         dfs([], 0)
         return res
 sln = Solutions()
-sln.subset_backtrack(nums)
+sln.subset(nums)
 # %%
