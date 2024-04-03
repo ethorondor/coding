@@ -3,7 +3,8 @@
 '''
 #%%
 import numpy as np
-nums = [2,1,5,0,4,6]
+#nums = [1,5,0,4,1,3]
+nums = [1,1,-2,7]
 class Solutions:
     def increasing_triplet(self, nums):
         n1, n2 = np.inf, np.inf
@@ -17,4 +18,3 @@ class Solutions:
         return False
 sln = Solutions()
 sln.increasing_triplet(nums)
-# %%
