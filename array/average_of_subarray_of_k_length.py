@@ -18,3 +18,17 @@ class solutions:
 sln = solutions()
 sln.ave_subarray(nums=nums, k=k)
 # %%
+class Solution:
+    def findMaxAverage(self, nums, k: int) -> float:
+        avg = sum(nums[:k])/k
+        ans = avg
+        for i in range(k, len(nums)):
+            avg = (avg*k-nums[i-k]+nums[i])/k
+            ans = max(ans, avg)
+        return ans
+#nums = [7,4,5,8,8,3,9,8,7,6]
+nums = [1,12,-5,-6,50,3]
+k = 4
+sln = Solution()
+sln.findMaxAverage(nums, k)
+# %%
