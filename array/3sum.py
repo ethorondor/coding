@@ -1,4 +1,7 @@
 #%%
+'''
+15 3 sum
+'''
 class Solution:
     def threeSum(self, nums):
         res = []
@@ -19,7 +22,7 @@ class Solution:
                     while nums[l] == nums[l-1] and l<r:
                         l += 1
         return res
-nums =[0,0,0, 0]
+nums = [-1,0,1,2,-1,-4]
 sln = Solution()
 sln.threeSum(nums)
 # %%

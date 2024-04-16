@@ -2,13 +2,17 @@
 2336 smallest number in infinite set
 '''
 class SmallestInfiniteSet:
-    def __init__(self) -> None:
+    def __init__(self):
         self.present = [True for _ in range(1001)]
-        
-    def popSmallest(self):
+
+    def popSmallest(self) -> int:
         for x in range(1,1001):
-            if self.present(x):
+            if self.present[x]:
                 self.present[x] = False
                 return x
-    def addBack(self, nums):
-        self.present(nums) = True
+
+    def addBack(self, num: int) -> None:
+        self.present[num] = True
+        
+new = SmallestInfiniteSet()
+new.popSmallest()

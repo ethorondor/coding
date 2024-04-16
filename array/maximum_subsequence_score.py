@@ -19,7 +19,7 @@ class Solutions:
             if len(min_heap) == k:
                 res = max(res, n1_sum*n2)
         return res
-nums1 = [1,3,3,2] 
+nums1 = [4,3,3,2] 
 nums2 = [2,1,3,4]
 k = 3
 sln = Solutions()
