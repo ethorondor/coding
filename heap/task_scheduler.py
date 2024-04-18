@@ -9,7 +9,12 @@ tasks = ['A','A','A','B','B','B']
 n = 2
 class Solutions:
     def least_interval(self, tasks, n):
-        count = Counter(tasks)
+        count = {}
+        for task in tasks:
+            if task not in count:
+                count[task] = 0
+            count[task] += 1
+        #count = Counter(tasks)
         max_heap = [-cnt for cnt in count.values()]
         heapq.heapify(max_heap)
         time = 0
